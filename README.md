@@ -68,6 +68,8 @@
 
 請先閱讀 [CONTRIBUTING.md](CONTRIBUTING.md)。有任何想法或建議，歡迎透過 [GitHub Issues](https://github.com/liilee111/tw-rental-transparency-map/issues) 提出。
 
+[這裡](https://github.com/users/liilee111/projects/2)或點選上方選單的Projects，可以看到目前進度。
+
 ## 注意事項
 
 本專案仍在早期開發階段，功能與資料來源可能持續調整。
