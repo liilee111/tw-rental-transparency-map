@@ -60,11 +60,11 @@
 | 地圖 | MapLibre GL |
 | 資料庫（後續階段） | PostgreSQL + PostGIS |
 
-選擇理由見[系統架構 §4](docs/architecture.md#4-技術選擇)。
+見[4](docs/architecture.md#4-技術選擇)。
 
 ## 如何參與
 
-歡迎對租屋議題、開放資料、資料分析或網頁開發有興趣的朋友一起參與。**不會寫程式也能參與**，例如查證資料來源、檢視統計方法、提供租屋經驗。
+歡迎對租屋議題、開放資料、資料分析或網頁開發有興趣的朋友一起參與。
 
 請先閱讀 [CONTRIBUTING.md](CONTRIBUTING.md)。有任何想法或建議，歡迎透過 [GitHub Issues](https://github.com/liilee111/tw-rental-transparency-map/issues) 提出。
 
