@@ -35,3 +35,11 @@ yarn-debug.log*
 
 # OS generated files
 Thumbs.db
+# Data (raw snapshots and intermediate files are not committed; see data/README.md)
+data/raw/*
+data/processed/*
+data/output/*
+!data/*/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/

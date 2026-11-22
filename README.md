@@ -5,7 +5,9 @@
 
 ## 專案介紹
 
-台灣租屋透明地圖是一個開源公民科技專案，希望透過資料整理與視覺化，讓租屋者更容易了解不同縣市的租屋市場資訊。(**文件及系統架構會陸續規劃及上傳**)
+台灣租屋透明地圖是一個開源公民科技專案，希望透過資料整理與視覺化，讓租屋者更容易了解不同縣市的租屋市場資訊。
+
+每一個租金數字都會附上**資料來源、租金類型、樣本數、統計期間與計算方法**，讓使用者知道這個數字從哪裡來、代表什麼、有哪些限制。
 
 ## 開發目標
 
@@ -16,7 +18,7 @@
 
 ## 開發進度
 
-目前開發階段：規劃中
+目前開發階段：**規劃中**（MVP 1 需求、架構、資料來源與統計方法已有初稿，尚無程式碼）
 
 | 階段 | 目標 |
 |---|---|
@@ -24,19 +26,57 @@
 | MVP 2 | 行政區資訊與租金分布 |
 | MVP 3 | 租金趨勢與區域比較 |
 
+後續規劃包括單一建物的資訊查詢，詳見[系統架構 §8](docs/architecture.md#8-分階段建置)。
+
+## 文件
+
+| 文件 | 內容 |
+|---|---|
+| [User Stories](docs/user-stories.md) | 使用者需求、驗收條件、各階段範圍 |
+| [系統架構](docs/architecture.md) | 設計原則、技術選擇、資料模型、分階段建置 |
+| [資料來源](docs/data-sources.md) | 各資料來源的授權、涵蓋範圍、更新頻率與限制 |
+| [統計方法](docs/methodology.md) | 統計量、資料清理、最低樣本數、過期判定 |
+| [參與貢獻](CONTRIBUTING.md) | 如何參與、工作流程、撰寫慣例 |
+
+## 目錄結構
+
+```
+├── docs/          需求、架構、資料來源、統計方法
+├── notebooks/     資料探索（第一步從這裡開始）
+├── data/          原始資料與統計輸出（不提交到 git）
+└── src/
+    ├── pipeline/  Python 資料匯入與統計
+    └── web/       Next.js 網站
+```
+
+各資料夾的用途與從哪裡開始，見 [CONTRIBUTING.md §6](CONTRIBUTING.md#6-開發環境)。
+
+## 技術
+
+| 用途 | 技術 |
+|---|---|
+| 資料匯入與統計 | Python + pandas |
+| 網站 | Next.js（TypeScript） |
+| 地圖 | MapLibre GL |
+| 資料庫（後續階段） | PostgreSQL + PostGIS |
+
+選擇理由見[系統架構 §4](docs/architecture.md#4-技術選擇)。
+
 ## 如何參與
 
-歡迎對租屋議題、開放資料、資料分析或網頁開發有興趣的朋友一起參與。
+歡迎對租屋議題、開放資料、資料分析或網頁開發有興趣的朋友一起參與。**不會寫程式也能參與**，例如查證資料來源、檢視統計方法、提供租屋經驗。
 
-有任何想法或建議，歡迎透過 [GitHub Issues](https://github.com/liilee111/tw-rental-transparency-map/issues) 提出。
-
-## 專案連結
-
-- [GitHub Repository](https://github.com/liilee111/tw-rental-transparency-map)
-- [User Stories](docs/user-stories.md)
+請先閱讀 [CONTRIBUTING.md](CONTRIBUTING.md)。有任何想法或建議，歡迎透過 [GitHub Issues](https://github.com/liilee111/tw-rental-transparency-map/issues) 提出。
 
 ## 注意事項
 
 本專案仍在早期開發階段，功能與資料來源可能持續調整。
 
 **刊登租金不等於實際成交租金。** 本專案會盡可能清楚標示資料來源與限制，避免誤解租金資訊。
+
+**實價登錄的租賃資料不是全部的租屋市場。** 房東與房客直接簽約的案件通常不需申報，統計結果可能偏向特定類型的物件，詳見[資料來源 §3.2](docs/data-sources.md#32-已知限制)。
+
+## 授權
+
+- **程式碼**：[Apache License 2.0](LICENSE)
+- **資料**：本專案發布的統計資料授權方式尚未決定，將依各資料來源的授權條款訂定。各來源的授權見[資料來源](docs/data-sources.md)。
